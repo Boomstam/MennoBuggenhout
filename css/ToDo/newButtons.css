@@ -1,0 +1,14 @@
+.newAction {
+    display: inherit;
+    margin-left: 20px;
+}
+
+.newTask {
+    display: inherit;
+    margin-left: 20px;
+}
+
+.newDomain {
+    display: inherit;
+    margin-top: 10px;
+}

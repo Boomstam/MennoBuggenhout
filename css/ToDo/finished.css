@@ -1,0 +1,13 @@
+.finished {
+	scale: 2;
+	margin: 20px;
+}
+
+.taskFinished{
+	scale: 2;
+	margin-right: 10px;
+}
+
+.actionFinished{
+	scale: 1.5;
+}

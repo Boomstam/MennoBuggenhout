@@ -1,0 +1,29 @@
+.deadline {
+    width: 100px;
+}
+
+taskInfo {
+    display: block;
+    margin-left: 5px;
+}
+
+actionInfo {
+    display: block;
+    margin-left: 5px;
+}
+
+timings {
+    display: inline;
+}
+
+timings input {
+    width: 30px;
+}
+
+.importance {
+    width: 30px;
+}
+
+levelHeader {
+    display: block;
+}

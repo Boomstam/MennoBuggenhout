@@ -1,0 +1,30 @@
+body {
+    font-family: "Peddana";
+    font-size: 20px;
+    animation: fadeIn 0.5s forwards;
+}
+
+em {
+    font-size: 15px;
+}
+
+:root {
+    --color1: rgb(191, 36, 131);
+    --color2: rgb(59, 132, 140);
+    --color3: rgb(215, 204, 58);
+    --color4: rgb(242, 224, 201);
+    --color5: rgb(242, 65, 48);
+}
+
+#foo {
+    color: var(--main-color);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

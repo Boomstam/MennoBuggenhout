@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ToDo</title>
+</head>
+
+<body style="opacity:0">
+    <h1>To Do Or Not To Do</h1>
+
+    <domain>
+        <levelHeader>
+            <button class="domainDetails">v</button>
+            <input class="domainName" placeholder="Domain"></input>
+            <collEditor>
+                <button class="duplicateDomain">+</button>
+                <button class="removeDomain">-</button>
+            </collEditor>
+            <elementMover>
+                <button class="upDomain">&#8593;</button>
+                <button class="downDomain">&#8595;</button>
+            </elementMover>
+        </levelHeader>
+
+        <task>
+            <levelHeader>
+                <button class="taskDetails">v</button>
+                <input class="taskFinished" type="checkbox"></input>
+                <input class="taskName" placeholder="Task"></input>
+                <collEditor>
+                    <button class="duplicateTask">+</button>
+                    <button class="removeTask">-</button>
+                </collEditor>
+                <elementMover>
+                    <button class="upTask">&#8593;</button>
+                    <button class="downTask">&#8595;</button>
+                </elementMover>
+            </levelHeader>
+            <taskInfo>
+                <timings>
+                    <em>Est dur (h)</em>
+                    <input class="taskEstDuration" type="number" min="0"></input>
+                    <em>Dur (h)</em>
+                    <input class="taskDuration" type="number" min="0"></input>
+                </timings>
+                <em>Deadline</em>
+                <input class="deadline" type="date"></input>
+                <em>Importance</em>
+                <input class="importance" type="number" min="0" max="100"></input>
+            </taskInfo>
+
+            <action>
+                <levelHeader>
+                    <button class="actionDetails">v</button>
+                    <input class="actionFinished" type="checkbox"></input>
+                    <input class="actionName" placeholder="Action"></input>
+                    <collEditor>
+                        <button class="duplicateAction">+</button>
+                        <button class="removeAction">-</button>
+                    </collEditor>
+                    <elementMover>
+                        <button class="upAction">&#8593;</button>
+                        <button class="downAction">&#8595;</button>
+                    </elementMover>
+                </levelHeader>
+                <actionInfo>
+                    <timings>
+                        <em>Est dur (m)</em>
+                        <input class="actionEstDuration" type="number" min="0"></input>
+                        <em>Dur (m)</em>
+                        <input class="actionDuration" type="number" min="0"></input>
+                    </timings>
+                </actionInfo>
+            </action>
+            <button class="newAction">New Action</button>
+
+        </task>
+        <button class="newTask">New Task</button>
+
+    </domain>
+    <button class="newDomain">New Domain</button>
+
+    <jsonOptions>
+        <button class="uploadButton"> Upload </button>
+        <input class="uploadFile" type="file" />
+        <a class="downloadLink" href="NONE">Download</a>
+    </jsonOptions>
+</body>
+
+<script src="js/injector.js"></script>
+
+</html>

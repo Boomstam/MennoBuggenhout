@@ -1,0 +1,16 @@
+jsonOptions {
+    margin-top: 25px;
+    display: block;
+}
+
+.uploadFile {
+    display: inline-block;
+}
+
+.uploadButton {
+    display: inline-block;
+}
+
+.downloadLink {
+    display: inline-block;
+}

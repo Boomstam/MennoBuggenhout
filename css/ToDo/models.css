@@ -1,0 +1,23 @@
+.task {
+    display: flex;
+}
+
+.taskHolder {
+    display: flex;
+}
+
+domain {
+    display: block;
+    margin-top: 10px;
+}
+
+task {
+    display: inherit;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+action {
+    display: inherit;
+    margin-left: 20px;
+}
