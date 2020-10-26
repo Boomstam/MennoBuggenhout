@@ -6,7 +6,7 @@ const googleFontLink = "https://fonts.googleapis.com/css?family=";
 const pages = ["Menno Buggenhout", "CV", "Projecten", "ToDo", "Evolute"];
 const globalStyles = ["global"];
 const styleSheetNames = [
-    [],
+    ["home"],
     ["cv"],
     [],
     ["names", "details", "json", "newButtons", "collEditor", "finished", "models", "miscToDo"],
@@ -33,9 +33,6 @@ async function injectScripts() {
 }
 
 function getFolderPrefix(pageIndex) {
-    if (pageIndex === 0) {
-        return "";
-    }
     let folderPrefix = pages[pageIndex];
     folderPrefix = folderPrefix + "/";
 
@@ -80,6 +77,7 @@ function createCssLink(style) {
 async function injectJs(pageIndex) {
     let scripts = scriptNames[pageIndex];
     let prefix = getFolderPrefix(pageIndex);
+    console.log(prefix);
     for (const scrpt of scripts) {
         let source = "js/" + prefix + scrpt + ".js";
         createJsScript(source);
@@ -100,6 +98,7 @@ function sleep(ms) {
 function getPageIndex() {
     let title = document.title;
     let index = pages.indexOf(title);
-
+    console.log(title);
+    console.log(index);
     return index;
 }
