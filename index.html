@@ -2,41 +2,45 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <title> Menno Buggenhout </title>
+    <link rel='stylesheet' href='css/global.css' />
+    <script src='js/headInjector.js'></script>
 </head>
 
-<body style="opacity:0">
-    <h1>Mijn persoonlijke pagina</h1>
-    <figure>
-        <img src="ProfielFoto.jpg" alt="Mijn profielfoto" />
-    </figure>
-    <h2>Introductie</h2>
-    <p>
-        Ik ben klassiek gitarist van opleiding. Ik speel klassiek zowel als pop/rock/jazz... Ik geef ook les gitaar en meer algemene muziekvakken. Een tweede passie van mij is programmeren, en daarom studeer ik sinds kort aan de <a href="https://www.thomasmore.be/">Thomas More Hogeschool</a>        in Antwerpen.
-    </p>
-    <h2>Mijn CV</h2>
-    <p>
-        Hier vind je een <a href="cv.html"> link naar mijn cv.</a>
-    </p>
-    <h2>Projecten</h2>
-    <p>
-        Hier vind je een <a href="projecten.html"> link naar mijn projecten.</a>
-    </p>
-    <form>
-        <fieldset>
-            <legend>Contact</legend>
-            <label for="firstName">Naam</label>
-            <input type="text" name="Voornaam" id="firstName"><br>
-            <label for="question">Uw vraag</label>
-            <textarea name="Vraag" id="question" cols="30" rows="10"></textarea><br>
-            <label for="email">E-mail</label>
-            <input type="email" name="E-mail" id="email"><br>
-            <input type="submit" value="Verstuur">
-        </fieldset>
-    </form>
+<body>
+    <mybody style='opacity:0'>
+        <h1>About me</h1>
+        <figure>
+            <img src='ProfielFoto.jpg' alt='Mijn profielfoto' />
+        </figure>
+        <h2>Introduction</h2>
+        <p>
+            I'm a musician by trade. I play the guitar and compose in different genres. I studied classical music but I also feel at home in pop, rock and jazz. I teach the guitar and other music subjects as well. A second passion for me is programming, which is
+            why I'm studying at the <a href='https://www.thomasmore.be/'>Thomas More Hogeschool</a> as of september.
+        </p>
+        <h2>Mijn CV</h2>
+        <p>
+            Hier vind je een <a href='cv.html'> link naar mijn cv.</a>
+        </p>
+        <h2>Projecten</h2>
+        <p>
+            Hier vind je een <a href='projecten.html'> link naar mijn projecten.</a>
+        </p>
+        <form>
+            <fieldset>
+                <legend>Contact</legend>
+                <label for='firstName'>Naam</label>
+                <input type='text' name='Voornaam' id='firstName'><br>
+                <label for='question'>Uw vraag</label>
+                <textarea name='Vraag' id='question' cols='30' rows='10'></textarea><br>
+                <label for='email'>E-mail</label>
+                <input type='email' name='E-mail' id='email'><br>
+                <input type='submit' value='Verstuur'>
+            </fieldset>
+        </form>
+    </mybody>
+    <script src='js/injector.js'></script>
 </body>
-
-<script src="js/injector.js"></script>
 
 </html>

@@ -1,6 +1,9 @@
 body {
-    font-family: "Peddana";
+    font-family: 'Peddana';
     font-size: 20px;
+}
+
+mybody {
     animation: fadeIn 0.5s forwards;
 }
 
@@ -42,6 +45,10 @@ flags>img:hover {
 
 mynavbar {
     display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    opacity: 1;
 }
 
 nav {

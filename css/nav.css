@@ -1,0 +1,22 @@
+flags {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+flags>img:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+mynavbar {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    opacity: 1;
+}
+
+nav {
+    display: inline;
+}
