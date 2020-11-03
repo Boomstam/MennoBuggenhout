@@ -1,6 +1,7 @@
 const languages = ['en', 'nl'];
 const defaultLanguage = 0;
 const languageKey = 'language';
+//const textKey = 'text';
 
 function setUpClickHandlers() {
     let flags = document.body.getElementsByTagName('flags')[0];
@@ -28,3 +29,17 @@ function getCurrentLanguage() {
 function getText() {
     //let text = 
 }
+
+
+/*async function loadText() {
+    $(document).ready(function() {
+        $.getJSON('text.json', function(data) {
+            console.log(data.en);
+            console.log(data.nl);
+        }).fail(function() {
+            alert('Serious error occurred: Failed to load text');
+            console.log('Failed to load text.json file');
+        });
+    });
+
+}*/

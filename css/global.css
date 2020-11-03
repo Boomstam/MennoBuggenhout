@@ -1,26 +1,19 @@
 body {
-    font-family: 'Peddana';
+    font-family: 'Gudea';
     font-size: 20px;
+    background-color: var(--background);
+}
+
+h1,
+h2 {
+    font-family: 'Staatliches';
 }
 
 mybody {
+    display: block;
+    opacity: 0;
     animation: fadeIn 0.5s forwards;
-}
-
-em {
-    font-size: 15px;
-}
-
-:root {
-    --color1: rgb(191, 36, 131);
-    --color2: rgb(59, 132, 140);
-    --color3: rgb(215, 204, 58);
-    --color4: rgb(242, 224, 201);
-    --color5: rgb(242, 65, 48);
-}
-
-#foo {
-    color: var(--main-color);
+    margin-top: 50px;
 }
 
 @keyframes fadeIn {
@@ -30,6 +23,14 @@ em {
     100% {
         opacity: 1;
     }
+}
+
+:root {
+    --white: rgb(255, 241, 230);
+    --black: rgb(38, 34, 34);
+    --background: rgb(57, 151, 161);
+    --music: rgb(212, 87, 68);
+    --programming: rgb(16, 24, 69);
 }
 
 flags {
@@ -51,6 +52,74 @@ mynavbar {
     opacity: 1;
 }
 
-nav {
+hamburger {
+    float: left;
+    width: 50px;
+    animation: fadeIn 1s forwards;
+    position: relative;
+    z-index: 1;
+}
+
+navcontent>nav {
+    opacity: 0;
     display: inline;
+    position: relative;
+    z-index: -1;
+}
+
+@keyframes showNav {
+    0% {
+        z-index: -1;
+        opacity: 0;
+        margin-left: -25px;
+    }
+    100% {
+        z-index: 1;
+        opacity: 1;
+        margin-left: 50px;
+    }
+}
+
+@keyframes hideNav {
+    0% {
+        z-index: 1;
+        opacity: 1;
+        margin-left: 50px;
+    }
+    99% {
+        z-index: -1;
+        opacity: 0;
+        margin-left: -25px;
+    }
+}
+
+burgerbun {
+    display: block;
+    height: 0px;
+    border-bottom: 2px solid var(--black);
+    border-top: 2px solid var(--black);
+    margin-bottom: 5px;
+    animation: closeBuns 0.5s forwards;
+}
+
+@keyframes openBuns {
+    0% {
+        height: 0px;
+    }
+    100% {
+        height: 5px;
+    }
+}
+
+@keyframes closeBuns {
+    0% {
+        height: 5px;
+    }
+    100% {
+        height: 0px;
+    }
+}
+
+hamburger:hover burgerbun {
+    animation: openBuns 0.5s forwards;
 }

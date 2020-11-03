@@ -1,4 +1,4 @@
-<h2>Introduction</h2>
+<h2>Introductie</h2>
         <p>
             I'm a musician by trade. I play the guitar and compose in different genres. I studied classical music but I also feel at home in pop, rock and jazz. I teach the guitar and other music subjects as well. A second passion for me is programming, which is
             why I'm studying at the <a href='https://www.thomasmore.be/'>Thomas More Hogeschool</a> as of september.

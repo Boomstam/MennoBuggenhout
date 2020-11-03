@@ -1,6 +1,6 @@
 const charset = 'utf-8';
 const rel = 'stylesheet';
-const googleFontFamilies = ['Peddana'];
+const googleFontFamilies = ['Peddana', 'Raleway', 'Gudea', 'Roboto', 'Oswald', 'Staatliches', 'Poiret One'];
 const googleFontLink = 'https://fonts.googleapis.com/css?family=';
 
 const pages = ['Menno Buggenhout', 'CV', 'Projecten', 'ToDo', 'Evolute'];
@@ -12,6 +12,7 @@ const styleSheetNames = [
     ['names', 'details', 'json', 'newButtons', 'collEditor', 'finished', 'models', 'miscToDo'],
     []
 ];
+const globalScripts = ['menuManager'];
 const scriptNames = [
     ['contact'],
     [],
@@ -69,6 +70,11 @@ async function injectJs(pageIndex) {
     let prefix = getFolderPrefix(pageIndex);
     for (const scrpt of scripts) {
         let source = 'js/' + prefix + scrpt + '.js';
+        createJsScript(source);
+        await sleep(loadDelay);
+    }
+    for (const gbScrpt of globalScripts) {
+        let source = 'js/' + gbScrpt + '.js';
         createJsScript(source);
         await sleep(loadDelay);
     }
