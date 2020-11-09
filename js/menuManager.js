@@ -12,17 +12,15 @@ async function setUpHamburgerClick() {
         hamburger = document.body.getElementsByTagName('hamburger')[0];
         await sleep(1);
     }
-    let navContent = document.body.getElementsByTagName('navcontent')[0];
-    let nav = navContent.getElementsByTagName('nav')[0];
+    let navcontent = document.body.getElementsByTagName('navcontent')[0];
+    let nav = navcontent.getElementsByTagName('nav')[0];
+
+    setHamburgerOpen(defaultOpenState);
+
     hamburger.onclick = function hamburgerClicked() {
         toggleHamburger();
         let style = animationPrefix + getNavAnimation(getHamburgerOpen()) + animationSuffix;
-        //style = getNavAnimation(getHamburgerOpen()) + animationSuffix;
-        console.log(style);
-        //hamburger.style.animation = style;
         nav.style = style;
-        console.log(nav.style.animation);
-        //let nextSibling
     }
 }
 
@@ -35,10 +33,6 @@ function getNavAnimation(show) {
 
 function getHamburgerOpen() {
     let isOpen = localStorage.getItem(hamburgerKey);
-    if (isOpen === null) {
-        setHamburgerOpen(defaultOpenState);
-        isOpen = localStorage.getItem(hamburgerKey);
-    }
     isOpen = JSON.parse(isOpen);
     console.log(isOpen);
     return isOpen;

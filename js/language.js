@@ -3,6 +3,8 @@ const defaultLanguage = 0;
 const languageKey = 'language';
 //const textKey = 'text';
 
+//setUpClickHandlers();
+
 function setUpClickHandlers() {
     let flags = document.body.getElementsByTagName('flags')[0];
     for (let languageIndex = 0; languageIndex < languages.length; languageIndex++) {

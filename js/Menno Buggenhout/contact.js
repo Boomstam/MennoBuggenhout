@@ -2,7 +2,7 @@ const name = "mennobuggenhout";
 const mailSuffix = "@gmail.com";
 const submittedTextAlert = "Het bericht is verstuurd!";
 
-setUpContactForm();
+//setUpContactForm();
 
 function setUpContactForm() {
     let form = document.body.getElementsByTagName("form")[0];

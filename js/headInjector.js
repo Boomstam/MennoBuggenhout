@@ -1,34 +1,22 @@
 const navKey = 'nav';
+const footerKey = 'footer';
 const maxLoadTime = 5000;
 
 injectHead();
 
 async function injectHead() {
+
     await injectJQuery();
 
-    loadLanguageScript();
+    //loadLanguageScript();
 
     await loadNavbar();
 
     createNavbar();
-}
 
-function createNavbar() {
-    let nav = localStorage.getItem(navKey);
-    let mynavbar = document.createElement('mynavbar');
-    nav = localStorage.getItem(navKey);
-    nav = JSON.parse(nav);
-    mynavbar.innerHTML = nav;
-    $(document).ready(function() {
-        document.body.insertBefore(mynavbar, document.body.firstChild);
-    });
-}
+    await loadFooter();
 
-function loadLanguageScript() {
-    let script = document.createElement('script');
-    script.src = 'js/language.js';
-    let headInjector = document.head.getElementsByTagName('script')[0];
-    document.head.insertBefore(script, headInjector);
+    createFooter();
 }
 
 async function injectJQuery() {
@@ -36,22 +24,6 @@ async function injectJQuery() {
     script.src = 'js/external/jquery-3.5.1.js';
     document.head.appendChild(script);
     await waitForJQuery();
-}
-
-async function loadNavbar() {
-    $.get('nav.html', function(nav) {
-        var parser = new DOMParser();
-        var htmlDoc = parser.parseFromString(nav, 'text/html');
-        let navbarHTML = htmlDoc.body.getElementsByTagName('mynavbar')[0];
-        let navString = JSON.stringify(navbarHTML.innerHTML);
-        localStorage.setItem(navKey, navString);
-    }).fail(function() {
-        alert('Serious error occurred: Failed to load navigation bar.');
-        console.log('Failed to load nav.html file');
-    });;
-    while (localStorage.getItem(navKey) === null) {
-        await sleep(1);
-    }
 }
 
 async function waitForJQuery() {
@@ -71,12 +43,73 @@ function jQueryLoaded() {
     return loaded;
 }
 
-function createCssLink(style) {
+function loadLanguageScript() {
+    let script = document.createElement('script');
+    script.src = 'js/language.js';
+    let headInjector = document.head.getElementsByTagName('script')[0];
+    document.head.insertBefore(script, headInjector);
+}
+
+async function loadNavbar() {
+    $.get('nav.html', function(nav) {
+        var parser = new DOMParser();
+        var htmlDoc = parser.parseFromString(nav, 'text/html');
+        let navbarHTML = htmlDoc.body.getElementsByTagName('mynavbar')[0];
+        let navString = JSON.stringify(navbarHTML.innerHTML);
+        localStorage.setItem(navKey, navString);
+    }).fail(function() {
+        alert('Serious error occurred: Failed to load navigation bar.');
+        console.log('Failed to load nav.html file');
+    });;
+    while (localStorage.getItem(navKey) === null) {
+        await sleep(1);
+    }
+}
+
+function createNavbar() {
+    let nav = localStorage.getItem(navKey);
+    let mynavbar = document.createElement('mynavbar');
+    nav = localStorage.getItem(navKey);
+    nav = JSON.parse(nav);
+    mynavbar.innerHTML = nav;
+    $(document).ready(function() {
+        document.body.insertBefore(mynavbar, document.body.firstChild);
+    });
+}
+
+async function loadFooter() {
+    $.get('footer.html', function(footer) {
+        var parser = new DOMParser();
+        var htmlDoc = parser.parseFromString(footer, 'text/html');
+        let footerHTML = htmlDoc.body.getElementsByTagName('footer')[0];
+        let footerString = JSON.stringify(footerHTML.innerHTML);
+        localStorage.setItem(footerKey, footerString);
+    }).fail(function() {
+        alert('Serious error occurred: Failed to load footer.');
+        console.log('Failed to load footer.html file');
+    });;
+    while (localStorage.getItem(footerKey) === null) {
+        await sleep(1);
+    }
+}
+
+function createFooter() {
+    let savedFooter = localStorage.getItem(footerKey);
+    let footer = document.createElement('footer');
+    savedFooter = localStorage.getItem(footerKey);
+    savedFooter = JSON.parse(savedFooter);
+    footer.innerHTML = savedFooter;
+    $(document).ready(function() {
+        document.body.appendChild(footer, document.body.firstChild);
+    });
+}
+
+/*function createCssLink(style) {
     let link = document.createElement('link');
     link.href = style;
     link.rel = rel;
     document.head.appendChild(link);
-}
+}*/
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));

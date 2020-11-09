@@ -3,7 +3,7 @@ const rel = 'stylesheet';
 const googleFontFamilies = ['Peddana', 'Raleway', 'Gudea', 'Roboto', 'Oswald', 'Staatliches', 'Poiret One'];
 const googleFontLink = 'https://fonts.googleapis.com/css?family=';
 
-const pages = ['Menno Buggenhout', 'CV', 'Projecten', 'ToDo', 'Evolute'];
+const pages = ['Menno Buggenhout', 'CV', 'Projects', 'ToDo', 'Evolute'];
 const globalStyles = ['global'];
 const styleSheetNames = [
     ['home'],
@@ -90,4 +90,11 @@ function getPageIndex() {
     let title = document.title;
     let index = pages.indexOf(title);
     return index;
+}
+
+function createCssLink(style) {
+    let link = document.createElement('link');
+    link.href = style;
+    link.rel = rel;
+    document.head.appendChild(link);
 }

@@ -1,15 +1,22 @@
+html {
+    overflow-y: auto;
+}
+
 body {
+    overflow-y: auto;
     font-family: 'Gudea';
-    font-size: 20px;
+    font-size: 18px;
     background-color: var(--background);
 }
 
 h1,
 h2 {
     font-family: 'Staatliches';
+    color: var(--white);
 }
 
 mybody {
+    overflow-y: auto;
     display: block;
     opacity: 0;
     animation: fadeIn 0.5s forwards;
@@ -25,39 +32,35 @@ mybody {
     }
 }
 
-:root {
+ :root {
     --white: rgb(255, 241, 230);
     --black: rgb(38, 34, 34);
     --background: rgb(57, 151, 161);
     --music: rgb(212, 87, 68);
-    --programming: rgb(16, 24, 69);
-}
-
-flags {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-}
-
-flags>img:hover {
-    opacity: 0.5;
-    cursor: pointer;
+    --coding: rgb(16, 24, 69);
 }
 
 mynavbar {
     display: block;
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 0px;
+    left: 0px;
     opacity: 1;
+    z-index: 1;
+    background-color: var(--background);
+    width: 100vw;
+    height: 50px;
 }
 
-hamburger {
-    float: left;
-    width: 50px;
-    animation: fadeIn 1s forwards;
-    position: relative;
-    z-index: 1;
+navcontent {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+navcontent>nav {
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 navcontent>nav {
@@ -65,6 +68,19 @@ navcontent>nav {
     display: inline;
     position: relative;
     z-index: -1;
+}
+
+navcontent>nav>a {
+    text-decoration: none;
+    color: var(--black);
+    margin-right: 50px;
+    font-weight: 900;
+}
+
+navcontent>nav>a:hover {
+    border-bottom: 3px solid;
+    border-radius: 5px;
+    padding-bottom: 5px;
 }
 
 @keyframes showNav {
@@ -91,6 +107,14 @@ navcontent>nav {
         opacity: 0;
         margin-left: -25px;
     }
+}
+
+hamburger {
+    float: left;
+    width: 50px;
+    position: relative;
+    z-index: 1;
+    animation: lowerHamburger 0.5s forwards;
 }
 
 burgerbun {
@@ -120,6 +144,47 @@ burgerbun {
     }
 }
 
+@keyframes lowerHamburger {
+    0% {
+        margin-top: -5px;
+    }
+    100% {
+        margin-top: 0x;
+    }
+}
+
+@keyframes escalateHamburger {
+    0% {
+        margin-top: 0px;
+    }
+    100% {
+        margin-top: -5px;
+    }
+}
+
 hamburger:hover burgerbun {
     animation: openBuns 0.5s forwards;
+}
+
+hamburger:hover {
+    animation: escalateHamburger 0.5s forwards;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: var(--black);
+    width: 100vw;
+    color: var(--white);
+}
+
+contactInfo {
+    float: left;
+    margin-left: 20px;
+}
+
+brandName {
+    float: right;
+    margin-right: 20px;
 }
