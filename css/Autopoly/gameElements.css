@@ -1,0 +1,11 @@
+:root {
+    --pieceSize: calc((var(--boardWrapperSize) / 13) / 2);
+}
+
+piece {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: var(--pieceSize);
+    height: var(--pieceSize);
+}

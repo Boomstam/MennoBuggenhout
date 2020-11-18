@@ -1,8 +1,0 @@
-{
-    "Projects": [{
-        "nl": "Projecten"
-    }],
-    "About Me": [{
-        "nl": [{ "menu": [{ "projects": "Projecten", "cv": "CV" }] }]
-    }]
-}

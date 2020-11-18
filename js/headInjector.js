@@ -1,6 +1,7 @@
 const navKey = 'nav';
 const footerKey = 'footer';
 const maxLoadTime = 5000;
+var textLoaderLoaded = false;
 
 injectHead();
 
@@ -32,7 +33,7 @@ async function waitForJQuery() {
         time++;
         await sleep(1);
         if (time > maxLoadTime) {
-            alert('Serious error occurred: Failed to load jQuery');
+            //alert('Serious error occurred: Failed to load jQuery');
             throw 'Failed to load jQuery';
         }
     }
@@ -58,7 +59,7 @@ async function loadNavbar() {
         let navString = JSON.stringify(navbarHTML.innerHTML);
         localStorage.setItem(navKey, navString);
     }).fail(function() {
-        alert('Serious error occurred: Failed to load navigation bar.');
+        //alert('Serious error occurred: Failed to load navigation bar.');
         console.log('Failed to load nav.html file');
     });;
     while (localStorage.getItem(navKey) === null) {
@@ -85,7 +86,7 @@ async function loadFooter() {
         let footerString = JSON.stringify(footerHTML.innerHTML);
         localStorage.setItem(footerKey, footerString);
     }).fail(function() {
-        alert('Serious error occurred: Failed to load footer.');
+        //alert('Serious error occurred: Failed to load footer.');
         console.log('Failed to load footer.html file');
     });;
     while (localStorage.getItem(footerKey) === null) {
@@ -104,12 +105,11 @@ function createFooter() {
     });
 }
 
-/*function createCssLink(style) {
-    let link = document.createElement('link');
-    link.href = style;
-    link.rel = rel;
-    document.head.appendChild(link);
-}*/
+async function waitForTextLoader() {
+    while (textLoaderLoaded === false) {
+        await sleep(1);
+    }
+}
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));

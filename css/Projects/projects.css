@@ -1,0 +1,9 @@
+columns {
+    margin-left: 5vw;
+}
+
+column {
+    margin: 0;
+    height: 100vh;
+    display: inline-block;
+}

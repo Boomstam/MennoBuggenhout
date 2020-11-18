@@ -1,0 +1,236 @@
+:root {
+    --boardWrapperSize: 1475px;
+    --boardWrapperMargin: 100px;
+    font-size: calc(var(--boardWrapperSize) / 100);
+    --bottomSpace: 300px;
+    --fullSize: 100%;
+    --tileWidth: calc(var(--fullSize) / 13);
+    --cornerSize: calc(var(--tileWidth) * 2);
+    --tileSubDiv: calc(var(--fullSize) / 4);
+    --rowTop: calc(var(--tileWidth) * 11);
+    --cornerLeft: calc(var(--tileWidth) * 11);
+    --cornerImgWidth: 75%;
+    --borderWidth: 1px;
+    --rowOffset: 0%;
+    --cornerCenterOffset: 12.5%;
+}
+
+:root {
+    --boardBgColor: #CDE6D0;
+    --borderColor: var(--black);
+    --property0: #670a40;
+    --property1: #6ea0ff;
+    --property2: #fd337d;
+    --property3: #f17f29;
+    --property4: #db200f;
+    --property5: #eccd34;
+    --property6: #367c3d;
+    --property7: #2843ea;
+    --chanceColor: #FF5C06;
+    --chestColor: #FFE728;
+}
+
+boardwrapper {
+    position: absolute;
+    width: var(--boardWrapperSize);
+    height: var(--boardWrapperSize);
+    display: block;
+    margin: var(--boardWrapperMargin);
+    font-family: 'Roboto';
+    font-size: 1rem;
+}
+
+board {
+    margin: 0px;
+    width: var(--fullSize);
+    height: var(--fullSize);
+    background-color: var(--boardBgColor);
+    overflow: auto;
+    border: var(--borderWidth) solid var(--borderColor);
+    display: block;
+}
+
+bottomspace {
+    position: absolute;
+    top: calc(var(--boardWrapperSize) + var(--boardWrapperMargin));
+    width: 100vw;
+    height: var(--bottomSpace);
+}
+
+row {
+    position: absolute;
+    width: var(--fullSize);
+    height: calc(var(--cornerSize));
+}
+
+.bottomRow {
+    top: var(--rowTop);
+    left: var(--borderWidth);
+}
+
+.leftRow {
+    transform: rotate(90deg);
+    left: -42.24%;
+    top: calc((var(--tileWidth) * 5.5) + (var(--borderWidth) / 2));
+}
+
+.topRow {
+    transform: rotate(180deg);
+    left: var(--borderWidth);
+    top: calc(var(--borderWidth) * 1.3);
+}
+
+.rightRow {
+    transform: rotate(-90deg);
+    left: calc((var(--tileWidth) * 5.5) + (var(--borderWidth) / 2));
+    top: calc((var(--tileWidth) * 5.5) + var(--borderWidth));
+}
+
+corner {
+    position: absolute;
+    left: var(--cornerLeft);
+    width: var(--cornerSize);
+    height: var(--fullSize);
+    display: block;
+    border-top: var(--borderWidth) solid var(--borderColor);
+}
+
+tile {
+    position: absolute;
+    width: var(--tileWidth);
+    height: var(--fullSize);
+    display: block;
+    border: var(--borderWidth) solid var(--borderColor);
+    border-left-style: none;
+    border-bottom-style: none;
+}
+
+gotext {
+    position: absolute;
+    left: 0%;
+    top: 5%;
+    width: var(--fullSize);
+    height: var(--cornerImgWidth);
+    size: 0.8;
+}
+
+goarrow {
+    position: absolute;
+    left: 0%;
+    top: var(--cornerImgWidth);
+    width: var(--fullSize);
+    height: calc(var(--fullSize) / 4);
+}
+
+img {
+    width: var(--fullSize);
+    height: auto;
+}
+
+goarrow>img {
+    position: absolute;
+}
+
+jail {
+    position: absolute;
+    width: var(--cornerImgWidth);
+    height: var(--cornerImgWidth);
+    border-bottom: var(--black) solid var(--borderWidth);
+    border-right: var(--black) solid var(--borderWidth);
+}
+
+car,
+pig {
+    position: absolute;
+    width: var(--cornerImgWidth);
+    left: var(--cornerCenterOffset);
+    top: var(--cornerCenterOffset);
+}
+
+tilename,
+tileprice,
+cardname,
+taxname,
+tileheader {
+    text-align: center;
+}
+
+tilename,
+cardname,
+tileheader,
+tileprice {
+    transform: translateY(30%);
+}
+
+taxname {
+    transform: translateY(25%);
+}
+
+tilecolor {
+    position: absolute;
+    width: var(--fullSize);
+    height: var(--tileSubDiv);
+    border-bottom: var(--borderWidth) solid var(--borderColor);
+}
+
+tilename {
+    position: absolute;
+    left: 5%;
+    top: 25%;
+    width: 90%;
+    height: var(--tileSubDiv);
+}
+
+tileprice {
+    position: absolute;
+    top: 75%;
+    width: var(--fullSize);
+    height: var(--tileSubDiv);
+}
+
+cardname {
+    position: absolute;
+    width: var(--fullSize);
+    height: var(--tileSubDiv);
+}
+
+cardimg {
+    position: absolute;
+    top: var(--tileSubDiv);
+    width: var(--fullSize);
+    height: calc(var(--tileSubDiv) * 3);
+    margin-top: -10%;
+}
+
+.chance>cardimg {
+    size: 0.8;
+}
+
+taxname {
+    position: absolute;
+    width: var(--fullSize);
+    height: var(--tileSubDiv);
+    font-size: 1.5rem;
+}
+
+taximg {
+    position: absolute;
+    top: var(--tileSubDiv);
+    width: var(--fullSize);
+    height: calc(var(--tileSubDiv) * 2);
+    font-size: 1.5rem;
+}
+
+tileheader {
+    position: absolute;
+    width: var(--fullSize);
+    height: var(--tileSubDiv);
+}
+
+middleimg {
+    position: absolute;
+    top: var(--tileSubDiv);
+    width: var(--fullSize);
+    height: calc(var(--tileSubDiv) * 2);
+    font-size: 1.5rem;
+}

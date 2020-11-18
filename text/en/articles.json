@@ -1,0 +1,39 @@
+{
+    "projects": [{
+            "name": "Kaspar",
+            "description": "Musical theater for 2 guitarists and 1 actor."
+        },
+        {
+            "name": "Four Aces Guitar Quartet",
+            "description": "Internationally acclaimed classical guitar quartet."
+        },
+        {
+            "name": "Undskyld",
+            "description": "Psychedelish Krautjazz."
+        },
+        {
+            "name": "Dossier E",
+            "description": "Ode to the Belgian highway network."
+        },
+        {
+            "name": "His Trust Fund",
+            "description": "Outer musings of a singer-song collective."
+        },
+        {
+            "name": "Young Brides",
+            "description": "Theatric music collective."
+        },
+        {
+            "name": "Dossier Citaat",
+            "description": "Voicing striking dutch phrases."
+        },
+        {
+            "name": "Tea Recs",
+            "description": "Straight up fun cover band."
+        },
+        {
+            "name": "De Delvers",
+            "description": "Flemish post punk new age poetry."
+        }
+    ]
+}

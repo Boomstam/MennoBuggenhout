@@ -1,0 +1,61 @@
+{
+    "classic": {
+        "tileType": ["corner", "property", "chance", "chest", "utility", "tax", "railroad"],
+        "properties": [
+            ["mediterranean avenue", "baltic avenue"],
+            ["oriental avenue", "vermont avenue", "conneticut avenue"],
+            ["st. charles place", "states avenue", "virginia avenue"],
+            ["st. james place", "tennessee avenue", "new york avenue"],
+            ["kentucky avenue", "indiana avenue", "illinois avenue"],
+            ["atlantic avenue", "ventnor avenue", "marvin gardens"],
+            ["pacific avenue", "north carolina avenue", "pennsylvania avenue"],
+            ["park place", "boardwalk"]
+        ],
+        "propertyPrices": [
+            [60, 60, 100, 100, 120],
+            [140, 140, 160, 180, 180, 200],
+            [220, 220, 240, 260, 260, 280],
+            [300, 300, 320, 350, 400]
+        ],
+        "specialIndices": [
+            [7, 22, 36],
+            [2, 17, 33],
+            [12, 28],
+            [4, 38],
+            [5, 15, 25, 35]
+        ],
+        "specialPrices": [
+            [150, 150],
+            [200, 100],
+            [200, 200, 200, 200]
+        ],
+        "specialLocations": [
+            ["electric company", "water works"],
+            ["income", "luxury"],
+            ["reading railroad", "pennsylvania railroad", "b.& o. railroad", "short line"]
+        ],
+        "pieces": [
+            "Thimble", "Wheelbarrow", "Boot", "Scottie dog", "Racing car", "Iron", "Top hat", "Battleship"
+        ],
+        "cornerPiecePositions": [
+            [0, 75],
+            [25, 75],
+            [50, 75],
+            [75, 75],
+            [75, 50],
+            [75, 25],
+            [75, 0],
+            [100, 0]
+        ],
+        "tilePiecePositions": [
+            [0, 25],
+            [50, 25],
+            [0, 50],
+            [50, 50],
+            [0, 75],
+            [50, 75],
+            [0, 100],
+            [50, 100]
+        ]
+    }
+}

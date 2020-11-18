@@ -1,3 +1,12 @@
+:root {
+    --white: rgb(255, 241, 230);
+    --black: rgb(38, 34, 34);
+    --transparentGrey: rgba(38, 34, 34, 0.6);
+    --background: rgb(57, 151, 161);
+    --music: rgb(212, 87, 68);
+    --coding: rgb(16, 24, 69);
+}
+
 html {
     overflow-y: auto;
 }
@@ -21,6 +30,7 @@ mybody {
     opacity: 0;
     animation: fadeIn 0.5s forwards;
     margin-top: 50px;
+    margin-left: 0px;
 }
 
 @keyframes fadeIn {
@@ -30,14 +40,6 @@ mybody {
     100% {
         opacity: 1;
     }
-}
-
- :root {
-    --white: rgb(255, 241, 230);
-    --black: rgb(38, 34, 34);
-    --background: rgb(57, 151, 161);
-    --music: rgb(212, 87, 68);
-    --coding: rgb(16, 24, 69);
 }
 
 mynavbar {
@@ -53,8 +55,6 @@ mynavbar {
 }
 
 navcontent {
-    margin-top: 10px;
-    margin-left: 10px;
     display: inline-block;
 }
 
@@ -77,7 +77,8 @@ navcontent>nav>a {
     font-weight: 900;
 }
 
-navcontent>nav>a:hover {
+navcontent>nav>a:hover,
+home>a:hover {
     border-bottom: 3px solid;
     border-radius: 5px;
     padding-bottom: 5px;
@@ -87,12 +88,12 @@ navcontent>nav>a:hover {
     0% {
         z-index: -1;
         opacity: 0;
-        margin-left: -25px;
+        margin-left: 0px;
     }
     100% {
         z-index: 1;
         opacity: 1;
-        margin-left: 50px;
+        margin-left: 75px;
     }
 }
 
@@ -100,21 +101,59 @@ navcontent>nav>a:hover {
     0% {
         z-index: 1;
         opacity: 1;
-        margin-left: 50px;
+        margin-left: 75px;
     }
     99% {
         z-index: -1;
         opacity: 0;
-        margin-left: -25px;
+        margin-left: 0px;
     }
+}
+
+home {
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 25px;
+    z-index: 1;
+}
+
+home>a {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 20px;
+    font-weight: 900;
 }
 
 hamburger {
     float: left;
+    margin-left: 10px;
+    margin-top: 12px;
     width: 50px;
-    position: relative;
     z-index: 1;
     animation: lowerHamburger 0.5s forwards;
+}
+
+hamburger:hover {
+    cursor: pointer;
+}
+
+@keyframes lowerHamburger {
+    0% {
+        margin-top: 7px;
+    }
+    100% {
+        margin-top: 12px;
+    }
+}
+
+@keyframes escalateHamburger {
+    0% {
+        margin-top: 12px;
+    }
+    100% {
+        margin-top: 7px;
+    }
 }
 
 burgerbun {
@@ -144,24 +183,6 @@ burgerbun {
     }
 }
 
-@keyframes lowerHamburger {
-    0% {
-        margin-top: -5px;
-    }
-    100% {
-        margin-top: 0x;
-    }
-}
-
-@keyframes escalateHamburger {
-    0% {
-        margin-top: 0px;
-    }
-    100% {
-        margin-top: -5px;
-    }
-}
-
 hamburger:hover burgerbun {
     animation: openBuns 0.5s forwards;
 }
@@ -177,14 +198,48 @@ footer {
     background-color: var(--black);
     width: 100vw;
     color: var(--white);
+    z-index: 1;
 }
 
-contactInfo {
+contactinfo {
     float: left;
     margin-left: 20px;
+    margin-top: 13px;
+    z-index: 3;
 }
 
-brandName {
+contactinfo>a {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+contactinfo>a:hover {
+    cursor: pointer;
+}
+
+brandname {
     float: right;
     margin-right: 20px;
+    margin-top: -5px;
+}
+
+contactoverlay {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    background-color: var(--transparentGrey);
+    display: none;
+}
+
+contactwindow {
+    background-color: var(--white);
+    margin-left: 25vw;
+    margin-top: 50px;
+    width: 50vw;
+    height: 500px;
+    display: inline-block;
+    border-radius: 5px;
 }
