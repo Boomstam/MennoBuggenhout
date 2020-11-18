@@ -2,6 +2,7 @@ const navKey = 'nav';
 const footerKey = 'footer';
 const maxLoadTime = 5000;
 var textLoaderLoaded = false;
+var headerFooterLoaded = false;
 
 injectHead();
 
@@ -102,11 +103,18 @@ function createFooter() {
     footer.innerHTML = savedFooter;
     $(document).ready(function() {
         document.body.appendChild(footer, document.body.firstChild);
+        headerFooterLoaded = true;
     });
 }
 
 async function waitForTextLoader() {
     while (textLoaderLoaded === false) {
+        await sleep(1);
+    }
+}
+
+async function waitForHeaderFooter() {
+    while (headerFooterLoaded === false) {
         await sleep(1);
     }
 }
