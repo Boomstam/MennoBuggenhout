@@ -1,39 +1,61 @@
 {
     "projects": [{
-            "name": "Kaspar",
-            "description": "Musical theater for 2 guitarists and 1 actor."
-        },
-        {
+            "id": "fourAces",
             "name": "Four Aces Guitar Quartet",
-            "description": "Internationally acclaimed classical guitar quartet."
+            "description": "Internationally acclaimed classical guitar quartet.",
+            "video": "https://www.youtube.com/embed?v=_wCeIEYfH94",
+            "links": "https://fouracesquartet.com"
+
         },
         {
+            "id": "undskyld",
             "name": "Undskyld",
-            "description": "Psychedelish Krautjazz."
+            "description": "Psychedelish Krautjazz - play this loud.",
+            "video": "https://www.youtube.com/channel/UCTDipTUYKKVetzmECPyTz0Q?fbclid=IwAR10zXWMikMHlCVJZLAuRg-dZ6q6hERvbYIwF9644Dnl2LeX2CK3PKiOqyw",
+            "links": "https://www.facebook.com/undskyld"
+
         },
         {
-            "name": "Dossier E",
-            "description": "Ode to the Belgian highway network."
+            "id": "dossier",
+            "name": "Dossier",
+            "description": "Hymns of Flemish highways and lowlands.",
+            "video": "https://www.youtube.com/embed/tgbNymZ7vqY",
+            "links": "https://www.youtube.com/embed?v=GNZa89pQyjI "
         },
         {
+            "id": "trustFund",
             "name": "His Trust Fund",
-            "description": "Outer musings of a singer-song collective."
+            "description": "Melancholia, euphoria and everything in between – a singer-songwriter collective.",
+            "video": "https://www.youtube.com/embed?v=z6ahuD4gsBI",
+            "links": "https://www.histrustfund.com/?fbclid=IwAR3NuRPTbatL3lxhcT00OITwNvkvvx0guc1aUS2FLDaMG1BE78bZrhcTtJ0"
         },
         {
+            "id": "youngBrides",
             "name": "Young Brides",
-            "description": "Theatric music collective."
+            "description": "A cathartic fusion of audiovisual theatre, film and music.",
+            "video": "https://www.youtube.com/embed?v=d0QWHyPSU84",
+            "links": "https://www.facebook.com/Young-Brides-102619317867051/about/"
         },
         {
-            "name": "Dossier Citaat",
-            "description": "Voicing striking dutch phrases."
-        },
-        {
+            "id": "teaRecs",
             "name": "Tea Recs",
-            "description": "Straight up fun cover band."
+            "description": "Straight up fun cover band – you will be dancing.",
+            "video": "https://www.youtube.com/embed?v=l41MsN8CFyA",
+            "links": "https://www.gigstarter.be/artiesten/tea-recs"
         },
         {
+            "id": "delvers",
             "name": "De Delvers",
-            "description": "Flemish post punk new age poetry."
+            "description": "Flemish post punk new age poetry.",
+            "video": "https://www.youtube.com/embed?v=teX6gKe5s1k",
+            "links": "https://www.dedelvers.be/"
+        },
+        {
+            "id": "kaspar",
+            "name": "Kaspar",
+            "description": "Musical theater for 2 guitarists and 1 actor.",
+            "video": "https://www.facebook.com/watch/?v=397115127950804",
+            "links": "https://www.kasparkollektiv.be/"
         }
     ]
 }

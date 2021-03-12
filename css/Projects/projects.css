@@ -1,9 +1,59 @@
-columns {
-    margin-left: 5vw;
+project-gallery {
+    /*margin-left: 5vw;
+    height: 1500px;
+    overflow: auto;*/
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1%;
+    gap: 2%;
 }
 
-column {
-    margin: 0;
-    height: 100vh;
-    display: inline-block;
+article {
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 600px) {
+    article {
+        width: 48%;
+    }
+}
+
+@media (min-width: 850px) {
+    article {
+        width: 32%;
+    }
+}
+
+article * {
+    overflow: auto;
+}
+
+project-img {
+    height: 50%;
+}
+
+article h3 {
+    height: 4%;
+    overflow: visible;
+}
+
+article p {
+    height: 10%;
+    overflow: auto;
+}
+
+article a {
+    height: 4%;
+    overflow: visible;
+}
+
+iframe {
+    width: 100%;
+    height: auto;
+}
+
+body {
+    overflow: auto;
 }

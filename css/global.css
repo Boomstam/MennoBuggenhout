@@ -8,15 +8,15 @@
     --focusColor: #5E9ED6;
 }
 
-html {
-    overflow-y: auto;
-}
-
 body {
-    overflow-y: auto;
     font-family: 'Gudea';
     font-size: 18px;
     background-color: var(--background);
+}
+
+img {
+    width: 100%;
+    height: auto;
 }
 
 textarea,
@@ -257,9 +257,10 @@ contactwindow {
 cross {
     position: absolute;
     left: 90%;
+    top: 2%;
     width: 10%;
     height: 10%;
-    top: 2%;
+    display: block;
     animation: scaleDownCross 0.5s forwards;
 }
 
@@ -269,19 +270,31 @@ cross:hover {
 
 @keyframes scaleUpCross {
     0% {
-        scale: 1;
+        left: 90%;
+        top: 2%;
+        width: 10%;
+        height: 10%;
     }
     100% {
-        scale: 1.4;
+        left: 89%;
+        top: 1%;
+        width: 12%;
+        height: 12%;
     }
 }
 
 @keyframes scaleDownCross {
     0% {
-        scale: 1.4;
+        left: 89%;
+        top: 1%;
+        width: 12%;
+        height: 12%;
     }
     100% {
-        scale: 1;
+        left: 90%;
+        top: 2%;
+        width: 10%;
+        height: 10%;
     }
 }
 

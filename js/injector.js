@@ -15,12 +15,12 @@ const styleSheetNames = [
 ];
 const globalScripts = ['menuManager', 'contact', 'language', 'textLoader'];
 const scriptNames = [
-    [],
+    ['home'],
     [],
     ['helpers', 'projects'],
     ['models', 'helpers', 'jsonManager', 'collEditor', 'detailHider', 'modelManager', 'modelParser', 'main'],
     ['shapes', 'actors', 'clickDetection', 'gameState', 'gameStarter'],
-    ['board', 'gameElements']
+    ['helpers', 'gameElements', 'board']
 ];
 const loadDelay = 1;
 

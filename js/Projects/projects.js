@@ -4,14 +4,14 @@ const widthUnit = "vw";
 const numColumns = 3;
 var defaultName;
 
-setUpGrid();
+setUpGallery();
 
-function setUpGrid() {
-    randomColumnWidth();
+function setUpGallery() {
+    //randomColumnWidth();
     insertArticles();
 }
 
-function randomColumnWidth() {
+/*function randomColumnWidth() {
     let cols = document.body.getElementsByTagName('columns')[0];
     let col = cols.children[0];
     for (let i = 0; i < numColumns - 1; i++) {
@@ -30,7 +30,7 @@ function randomColumnWidth() {
 function nextOffset() {
     let offset = randomIntInRange(-maxWidthOffset, maxWidthOffset);;
     return offset;
-}
+}*/
 
 async function insertArticles() {
     await waitForTextLoader();
@@ -42,28 +42,39 @@ async function insertArticles() {
         size = articles.length;
         insertArticle(article[0]);
     }
+    deleteTemplateArticle();
+}
+
+function deleteTemplateArticle(){
+    let templArt = document.body.getElementsByTagName('article')[0];
+    templArt.remove();
 }
 
 function insertArticle(article) {
     console.log(article);
-    let column = colWithMinNumChildren();
-    let articleElement = column.children[0];
+    //let column = colWithMinNumChildren();
+    let gallery = document.body.getElementsByTagName('project-gallery')[0];
+    let articleElement = gallery.children[0];
     let nameToCheck = articleElement.getElementsByTagName('h3')[0];
     console.log(nameToCheck.innerHTML);
     console.log(defaultName);
     let isFilled = (nameToCheck.innerHTML !== defaultName);
     if (isFilled) {
         let copy = articleElement.cloneNode(true);
-        column.appendChild(copy);
+        gallery.appendChild(copy);
         articleElement = copy;
     }
+    let img = articleElement.getElementsByTagName('img')[0];
     let name = articleElement.getElementsByTagName('h3')[0];
     let description = articleElement.getElementsByTagName('p')[0];
+    let link = articleElement.getElementsByTagName('a')[0];
+    img.src = 'images/projects/' + article.id + '.jpg';
     name.innerHTML = article.name;
     description.innerHTML = article.description;
+    link.href = article.links;;
 }
 
-function colWithMinNumChildren() {
+/*function colWithMinNumChildren() {
     let cols = document.body.getElementsByTagName('columns')[0];
     let colIndex;
     let lowestSize = Number.MAX_SAFE_INTEGER;
@@ -77,10 +88,4 @@ function colWithMinNumChildren() {
     }
     let column = cols.children[colIndex];
     return column;
-}
-
-function randomIntInRange(minIncl, maxIncl) {
-    let range = maxIncl - minIncl;
-    let nextRand = Math.floor(Math.random() * range) + minIncl;
-    return nextRand;
-}
+}*/

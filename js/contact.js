@@ -1,4 +1,4 @@
-const name = "mailto:mennobuggenhout";
+const mailName = "mailto:mennobuggenhout";
 const mailSuffix = "@gmail.com";
 const messageSentAlert = "Thank you!";
 const openDisplay = 'block';
@@ -14,11 +14,6 @@ setUpContactForm();
 async function setUpContactForm() {
     await waitForHeaderFooter();
     let link = document.body.getElementsByTagName('contactinfo')[0];
-
-    /*while (link === undefined) {
-        link = document.body.getElementsByTagName('contactinfo')[0];
-        await sleep(1);
-    }*/
     link.onclick = function linkClicked() {
         toggleOverlay();
     }
@@ -28,12 +23,9 @@ async function setUpContactForm() {
 
 function setUpContactWindow() {
     let contactWindow = document.body.getElementsByTagName('contactwindow')[0];
-    console.log(contactWindow);
     setUpCross(contactWindow);
-
     let mailLink = contactWindow.getElementsByClassName('mailLink')[0];
-    mailLink.href = name + mailSuffix;
-    console.log(contactWindow);
+    mailLink.href = mailName + mailSuffix;
     setUpSubmitButton(contactWindow);
 }
 
@@ -46,11 +38,11 @@ function setUpCross(contactWindow) {
 
 function setUpSubmitButton() {
     /*
-        //Passing contact window as a parameter produced a reaaaaly weird heisenbug where contactWindow logged fine,
+        //Passing contact window as a parameter produced a reeeealy weird heisenbug where contactWindow logged fine,
         //but threw an 'undefined' error when used...?
         let contactWindow = document.body.getElementsByTagName('contactwindow')[0];
-        console.log(contactWindow);
-        contact.getElementsByClassName('replyInfo')[0];
+        console.log(contactWindow);//everything tip top
+        contactWindow.getElementsByClassName('replyInfo')[0];// contactWindow = undefined?
     */
     let contactForm = document.body.getElementsByTagName('contactform')[0];
     let message = document.getElementById('message');
@@ -58,16 +50,13 @@ function setUpSubmitButton() {
     defaultMessage = copyString(message.innerHTML);
     defaultReplyInfo = copyString(replyInfo.value);
     let button = contactForm.getElementsByClassName('submitButton')[0];
-    console.log(defaultMessage + defaultReplyInfo);
     button.onclick = function buttonClicked() {
-        alert(messageSentAlert);
-
-        console.log(defaultMessage + message.innerHTML);
         /*
-            Want to read the hardcoded content of textarea => 'innerHTML'
-            Want to edit it realtime => 'value'
+            Read the hardcoded content of textarea => 'innerHTML'
+            Edit it realtime => 'value'
             https://stackoverflow.com/questions/1927593/cant-update-textarea-with-javascript-after-writing-to-it-manually
         */
+        alert(messageSentAlert);
         message.value = defaultMessage;
         replyInfo.value = defaultReplyInfo;
         toggleOverlay();

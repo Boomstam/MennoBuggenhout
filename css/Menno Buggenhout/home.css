@@ -4,12 +4,25 @@ label {
     vertical-align: top;
 }
 
-.homebgimage {
-    --negHalfImageWidth: -400px;
+homebgimage {
+    width: 800;
     position: fixed;
     left: 50vw;
-    transform: translateX(var(--negHalfImageWidth));
+    transform: translateX(-400px);
     opacity: 0.2;
+}
+
+sparks {
+    width: 800px;
+    height: 800px;
+    position: fixed;
+    left: 50vw;
+    transform: translateX(-400px);
+    opacity: 0.2;
+}
+
+spark {
+    position: absolute;
 }
 
 homeTitles {
@@ -45,7 +58,9 @@ lefthemisphere,
 righthemisphere {
     position: absolute;
     width: 50vw;
-    top: 65px;
+    height: 100vh;
+    top: 125px;
+    overflow-y: auto;
 }
 
 lefthemisphere {
@@ -56,16 +71,92 @@ righthemisphere {
     left: 50vw;
 }
 
+lefthemisphere>article,
+righthemisphere>article {
+    position: absolute;
+    width: 90%;
+}
 
-/*middleline {
-    --lineWidth: 10px;
-    --negHalfLineWidth: -5px;
-    position: fixed;
-    left: 50vw;
-    top: 20vh;
-    transform: translateX(var(--negHalfLineWidth));
-    width: 10px;
-    height: 70vh;
-    background-color: var(--black);
-    border-radius: 4px;
+
+/*lefthemisphere>article {
+    left: 35%;
+}
+
+righthemisphere>article {
+    left: 5%;
 }*/
+
+codingimg {
+    position: absolute;
+    width: 20%;
+    left: 5%;
+    top: 30%;
+}
+
+codingtext {
+    position: absolute;
+    left: 30%;
+    width: 75%;
+}
+
+musicimg {
+    position: absolute;
+    left: 85%;
+    top: 30%;
+    width: 20%;
+}
+
+musictext {
+    position: absolute;
+    width: 80%;
+    left: 5%;
+}
+
+.web {
+    top: 0px;
+    height: 300px;
+}
+
+.apps {
+    top: 300px;
+    height: 300px;
+}
+
+.mediaDesign {
+    top: 600px;
+    height: 625px;
+}
+
+.guitarist {
+    top: 0px;
+    height: 200px;
+}
+
+.composer {
+    top: 200px;
+    height: 300px;
+}
+
+.producer {
+    top: 500px;
+    height: 300px;
+}
+
+.teacher {
+    top: 800px;
+    height: 500px;
+}
+
+.teacher>musicimg,
+.mediaDesign>codingimg {
+    top: 20%;
+}
+
+codingtext>h1,
+musictext>h1 {
+    text-align: center;
+}
+
+body {
+    overflow: hidden;
+}

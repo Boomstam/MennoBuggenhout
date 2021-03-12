@@ -15,20 +15,17 @@ async function createBoard() {
     await waitForTextLoader();
     classic = getClassic();
 
-    let rows = document.body.getElementsByTagName('row');
+    initPrefabs(getRow(0));
 
-    initPrefabs(rows[0]);
-
-    for (let i = 0; i < rows.length; i++) {
-        let row = rows[i];
+    for (let i = 0; i < getRows().length; i++) {
+        let row = getRow(i);
         createTiles(row, i);
     }
-    console.log('create pieces');
-    initPieces();
-    createPieces();
     for (const prefab of tilePrefabs) {
         prefab.style.display = "none";
     }
+    initPieces();
+    createPieces();
 }
 
 function initPrefabs(firstRow) {
@@ -40,6 +37,11 @@ function initPrefabs(firstRow) {
     tilePrefabs[5] = firstRow.getElementsByClassName('railroad')[0];
 }
 
+/*function createCards() {
+    let board = body.getElementsByTagName('board')[0];
+    //let chancePile = 
+}*/
+
 function createTiles(row, rowIndex) {
     let normRowIndex = rowIndex * (tilesPerSide + 1);
 
@@ -47,7 +49,7 @@ function createTiles(row, rowIndex) {
 
     for (let i = 0; i < tilesPerSide; i++) {
         let tileIndex = normRowIndex + i + 1;
-        let tileElement = getTile(tileIndex);
+        let tileElement = createTile(tileIndex);
         let leftMod = (tilesPerSide + 1) - i;
         let tileLeft = tileLeftPrefix + leftMod + tileLeftSuffix;
         tileElement.style.left = tileLeft;
@@ -58,12 +60,14 @@ function createTiles(row, rowIndex) {
     }
 }
 
-function getTile(tileIndex) {
+function createTile(tileIndex) {
     let typeIndex = getTypeIndex(tileIndex);
-    let prefab = tilePrefabs[typeIndex];
+    let prefab = tilePrefabs[typeIndex - 1];
     let tile = prefab.cloneNode(true);
-
     if (typeIndex === 0) {
+
+    }
+    if (typeIndex === 1) {
         let propertyIndex = getPropertyIndex(tileIndex);
         let tileName = getPropertyName(propertyIndex, true);
         let tilePrice = getPropertyPrice(propertyIndex);
@@ -93,6 +97,47 @@ function getTile(tileIndex) {
     return tile;
 }
 
+function getRows() {
+    let rows = document.body.getElementsByTagName('row');
+    return rows;
+}
+
+function getRow(rowIndex) {
+    let row = getRows()[rowIndex];
+    return row;
+}
+
+function getTile(tileIndex) {
+    let rowIndex = Math.floor(tileIndex / 4);
+    let row = getRow(rowIndex);
+    if (tileIndex % 10 === 0) {
+        let corner = row.getElementsByTagName('corner')[0];
+        return corner;
+    }
+    let tiles = Array.from(row.getElementsByTagName('tile'));
+    tiles = removeByComputedStyle(tiles, 'display', 'none');
+    let normTileIndex = tileIndex % 10 - 1;
+    let tile = tiles[normTileIndex];
+    return tile;
+}
+
+function getTypeIndex(tileIndex) {
+    if (tileIndex % 10 === 0) {
+        return 0;
+    }
+    let specialIndices = classic.specialIndices;
+    for (let typeIndex = 0; typeIndex < specialIndices.length; typeIndex++) {
+        let indices = specialIndices[typeIndex];
+        for (let subTypeIndex = 0; subTypeIndex < indices.length; subTypeIndex++) {
+            let index = indices[subTypeIndex];
+            if (tileIndex === index) {
+                return typeIndex + 2;
+            }
+        }
+    }
+    return 1;
+}
+
 function getPropertyFamily(propertyIndex) {
     let count = 0;
     for (let i = 0; i < classic.properties.length; i++) {
@@ -105,20 +150,6 @@ function getPropertyFamily(propertyIndex) {
         }
     }
     throw 'property family not found for ' + propertyIndex;
-}
-
-function getTypeIndex(tileIndex) {
-    let specialIndices = classic.specialIndices;
-    for (let typeIndex = 0; typeIndex < specialIndices.length; typeIndex++) {
-        let indices = specialIndices[typeIndex];
-        for (let subTypeIndex = 0; subTypeIndex < indices.length; subTypeIndex++) {
-            let index = indices[subTypeIndex];
-            if (tileIndex === index) {
-                return typeIndex + 1;
-            }
-        }
-    }
-    return 0;
 }
 
 function getPropertyIndex(tileIndex) {

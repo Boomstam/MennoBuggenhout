@@ -1,13 +1,12 @@
-const pieceImgPrefix = 'images/piece';
+const pieceImgPrefix = 'images/monopoly/piece';
 const pieceImgSuffix = '.png';
 var numPieces = 8;
 var examplePiece;
 var pieces = [];
-var start;
 
 function initPieces() {
-    start = document.body.getElementsByClassName('bottomRow')[0].getElementsByTagName('corner')[0];
-    examplePiece = start.getElementsByTagName('piece')[0];
+    let go = getTile(0);
+    examplePiece = go.getElementsByTagName('piece')[0];
     examplePiece.style.display = "none";
 }
 
@@ -20,25 +19,21 @@ function createPieces() {
 function createPiece(pieceIndex) {
     let piece = examplePiece.cloneNode(true);
     piece.style.display = "block";
+    piece.className = "livePiece";
     setImage(piece, pieceIndex);
-    /*putPieceOnTile(piece, start, true);
-    putPieceOnTile(piece, start, true);*/
-    let tile = document.body.getElementsByClassName('bottomRow')[0].getElementsByTagName('tile')[0];
-    putPieceOnTile(piece, tile, false);
+    let tile = getTile(1);
+    putPieceOnTile(piece, tile);
     pieces[pieceIndex] = piece;
 }
 
-function putPieceOnTile(piece, tile, isCorner) {
+function putPieceOnTile(piece, tile) {
+    let isCorner = checkIfCorner(tile);
     let positions = classic.tilePiecePositions;
-    console.log('positions' + positions);
     if (isCorner) {
         positions = classic.cornerPiecePositions;
     }
-    let numPieces = numPiecesOnTile(tile);
-    console.log('numpieces' + numPieces);
-    let position = positions[numPieces];
-    HIER
-    console.log('position' + position);
+    let positionIndex = numPiecesOnTile(tile);
+    let position = positions[positionIndex];
     tile.appendChild(piece);
     piece.style.left = position[0] + '%';
     piece.style.top = position[1] + '%';
@@ -50,8 +45,8 @@ function setImage(piece, pieceIndex) {
     img.src = pieceImgPrefix + pieceIndex + pieceImgSuffix;
 }
 
-function isCorner(tile) {
-    return tile.tagName = 'CORNER';
+function checkIfCorner(tile) {
+    return tile.tagName === 'CORNER';
 }
 
 function numPiecesOnTile(tile) {
@@ -59,5 +54,13 @@ function numPiecesOnTile(tile) {
 }
 
 function piecesOnTile(tile) {
-    return pieces = tile.getElementsByTagName('piece');
+    let pieces = tile.getElementsByTagName('piece');
+    //https://stackoverflow.com/questions/37311003/how-to-remove-an-item-from-htmlcollection
+    pieces = Array.from(pieces);
+    pieces = removeByProp(pieces, 'className', 'exampleTile');
+    return pieces;
+}
+
+function getPieceTileIndex(piece) {
+
 }

@@ -11,7 +11,8 @@ async function injectHead() {
     await injectJQuery();
 
     //loadLanguageScript();
-
+    
+    //NEXT 2 LINES ARE DISABLED TEMPORARILY FOR SOLLICITATION => NO NAVBAR
     await loadNavbar();
 
     createNavbar();
@@ -121,4 +122,10 @@ async function waitForHeaderFooter() {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function randomIntInRange(minIncl, maxIncl) {
+    let range = maxIncl - minIncl;
+    let nextRand = Math.floor(Math.random() * range) + minIncl;
+    return nextRand;
 }

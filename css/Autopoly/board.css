@@ -50,6 +50,14 @@ board {
     display: block;
 }
 
+boardcenter {
+    width: 69.3%;
+    height: 69.2%;
+    left: 15.4%;
+    top: 15.5%;
+    position: absolute;
+}
+
 bottomspace {
     position: absolute;
     top: calc(var(--boardWrapperSize) + var(--boardWrapperMargin));
@@ -120,11 +128,6 @@ goarrow {
     top: var(--cornerImgWidth);
     width: var(--fullSize);
     height: calc(var(--fullSize) / 4);
-}
-
-img {
-    width: var(--fullSize);
-    height: auto;
 }
 
 goarrow>img {
@@ -233,4 +236,49 @@ middleimg {
     width: var(--fullSize);
     height: calc(var(--tileSubDiv) * 2);
     font-size: 1.5rem;
+}
+
+chancepile,
+chestpile {
+    width: 28%;
+    height: 17%;
+    position: absolute;
+}
+
+chancepile {
+    left: 66.6%;
+    top: 72%;
+    transform: rotate(-45deg);
+}
+
+chestpile {
+    left: 5.5%;
+    top: 11%;
+    transform: rotate(135deg);
+}
+
+dicewrapper {
+    position: absolute;
+    border: var(--borderWidth) solid var(--property0);
+    top: 30%;
+    left: 30%;
+    height: 40%;
+    width: 40%;
+}
+
+die1,
+die2 {
+    position: absolute;
+    height: 10%;
+    width: 10%;
+}
+
+die1 {
+    left: 0%;
+    top: 0%;
+}
+
+die2 {
+    left: 90%;
+    top: 90%;
 }
